@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Hero } from './hero';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
 
 @Injectable()
 export class MockHeroesService {
@@ -13,14 +14,10 @@ export class MockHeroesService {
     { id: 5, name: 'Mr. Alex' }
   ];
 
-  private heroes = new BehaviorSubject<any>(this.stubHeroes);
-
-  hero = this.heroes.asObservable();
-
   constructor() { }
 
-  changeHero(hero) {
-    this.heroes.next(hero);
+  getHeroes(): Observable<Hero[]> {
+    return of(this.stubHeroes);
   }
 
 }
