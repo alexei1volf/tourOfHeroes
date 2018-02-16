@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MapComponent } from './map.component';
+import { MapOpenlayerComponent } from './map-openlayer.component';
 
-describe('MapComponent', () => {
-  let component: MapComponent;
-  let fixture: ComponentFixture<MapComponent>;
+describe('MapOpenlayerComponent', () => {
+  let component: MapOpenlayerComponent;
+  let fixture: ComponentFixture<MapOpenlayerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MapComponent ]
+      declarations: [ MapOpenlayerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MapComponent);
+    fixture = TestBed.createComponent(MapOpenlayerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
