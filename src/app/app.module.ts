@@ -10,9 +10,6 @@ import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { MockHeroesService } from './mock-heroes.service';
 import { HeroDetailsComponent } from './hero-details/hero-details.component';
-import { MapBoxComponent } from './map-box/map-box.component';
-import { MapService } from './map.service';
-import { MapOpenlayerComponent } from './map-openlayer/map-openlayer.component';
 
 enableProdMode();
 
@@ -29,9 +26,7 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     HeroesComponent,
-    HeroDetailsComponent,
-    MapBoxComponent,
-    MapOpenlayerComponent
+    HeroDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +35,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule
   ],
-  providers: [MockHeroesService, MapService],
+  providers: [MockHeroesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

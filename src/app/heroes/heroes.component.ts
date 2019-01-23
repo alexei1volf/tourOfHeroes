@@ -11,18 +11,20 @@ export class HeroesComponent implements OnInit {
 
   heroes = [];
   selectedHero: Hero;
+  superHero: Hero;
 
-  constructor(private _data: MockHeroesService) {
+  constructor(public heroService: MockHeroesService) {
 
   }
 
   getHeroes(): void {
-    this._data.getHeroes()
+    this.heroService.getHeroes()
       .subscribe(heroes => this.heroes = heroes);
   }
 
   ngOnInit() {
     this.getHeroes();
+    this.superHero = this.heroService.superHero;
   }
 
   onSelect(hero: Hero): void {
