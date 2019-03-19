@@ -1,26 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AngularOpenlayersModule } from 'ngx-openlayers';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { enableProdMode } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { MockHeroesService } from './mock-heroes.service';
 import { HeroDetailsComponent } from './hero-details/hero-details.component';
+import {SuperHeroModule} from "./super-hero/super-hero.module";
+import {RouterModule, Routes} from "@angular/router";
 
-enableProdMode();
-
-export const firebaseConfig = {
-  apiKey: 'AIzaSyDtLQ__CvlfEQi835LOwHp8uTWXgdxFKXY',
-  authDomain: 'map1alexei1volf.firebaseapp.com',
-  databaseURL: 'https://map1alexei1volf.firebaseio.com',
-  projectId: 'map1alexei1volf',
-  storageBucket: '',
-  messagingSenderId: '612363096131'
-};
+const appRoutes: Routes = [
+  { path: 'hero', component: HeroesComponent }
+];
 
 @NgModule({
   declarations: [
@@ -31,9 +22,8 @@ export const firebaseConfig = {
   imports: [
     BrowserModule,
     FormsModule,
-    AngularOpenlayersModule,
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    RouterModule.forRoot(appRoutes),
+    SuperHeroModule
   ],
   providers: [MockHeroesService],
   bootstrap: [AppComponent]

@@ -1,12 +1,9 @@
 <h2>My heroes:</h2>
 <ul class="heroes">
-  <li *ngFor="let hero of heroes" (click)="onSelect(hero)">
-    <span>{{hero.id}}</span> {{hero.name}}
+  <li *ngFor="let hero of heroService.heroes$ | async" (click)="onSelect(hero)">
+    <span>{{hero.id}}</span> <a href="#">{{hero.name}}</a>
   </li>
 </ul>
-
-<h2>Super hero:</h2>
-<div>{{superHero.id}} : {{superHero.name}}</div>
 
 <app-hero-details [hero] = "selectedHero"></app-hero-details>
 
