@@ -6,24 +6,18 @@ import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { MockHeroesService } from './mock-heroes.service';
 import { HeroDetailsComponent } from './hero-details/hero-details.component';
-import {SuperHeroModule} from "./super-hero/super-hero.module";
-import {RouterModule, Routes} from "@angular/router";
-
-const appRoutes: Routes = [
-  { path: 'hero', component: HeroesComponent }
-];
+import {SuperHeroComponent} from "./super-hero/super-hero.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent,
-    HeroDetailsComponent
+    HeroDetailsComponent,
+    SuperHeroComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    RouterModule.forRoot(appRoutes),
-    SuperHeroModule
+    FormsModule
   ],
   providers: [MockHeroesService],
   bootstrap: [AppComponent]
