@@ -7,6 +7,12 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { MockHeroesService } from './mock-heroes.service';
 import { HeroDetailsComponent } from './hero-details/hero-details.component';
 import {SuperHeroComponent} from "./super-hero/super-hero.component";
+import {RouterModule, Routes} from "@angular/router";
+
+const appRouts: Routes = [
+  {path: "hero", component: HeroesComponent},
+  {path: "super", component: SuperHeroComponent}
+];
 
 @NgModule({
   declarations: [
@@ -17,7 +23,8 @@ import {SuperHeroComponent} from "./super-hero/super-hero.component";
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRouts)
   ],
   providers: [MockHeroesService],
   bootstrap: [AppComponent]
