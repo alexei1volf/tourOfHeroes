@@ -13,3 +13,8 @@
   border: 1px dashed orangered;
   margin: 10px;
 }
+
+.navigation {
+  display: flex;
+  justify-content: space-around;
+}
