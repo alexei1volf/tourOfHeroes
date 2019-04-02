@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
-import { MockHeroesService } from './mock-heroes.service';
+import { HeroesService } from './heroes.service';
 import { HeroDetailsComponent } from './hero-details/hero-details.component';
 import {SuperHeroComponent} from "./super-hero/super-hero.component";
 
@@ -19,7 +19,7 @@ import {SuperHeroComponent} from "./super-hero/super-hero.component";
     BrowserModule,
     FormsModule
   ],
-  providers: [MockHeroesService],
+  providers: [HeroesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

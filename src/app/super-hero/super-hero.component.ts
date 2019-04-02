@@ -1,5 +1,6 @@
 import {Component} from "@angular/core";
 import {Hero} from "../hero";
+import {HeroesService} from "../heroes.service";
 
 @Component({
   selector: 'super-hero',
@@ -9,5 +10,12 @@ import {Hero} from "../hero";
 `
 })
 export class SuperHeroComponent {
-  public hero: Hero = {id: 100, name: "Iron Man"}
+
+  hero: Hero;
+
+  constructor(public heroService: HeroesService) {
+    this.hero = heroService.heroes[0];
+  }
+
+
 }
