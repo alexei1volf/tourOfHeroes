@@ -1,7 +1,5 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import { Hero } from './hero';
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
 import {BehaviorSubject} from "rxjs";
 
 @Injectable()
