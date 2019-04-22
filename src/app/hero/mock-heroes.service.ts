@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import { Hero } from './hero';
 import {BehaviorSubject} from "rxjs";
+import {Hero} from "./hero";
 
 @Injectable()
 export class MockHeroesService {
