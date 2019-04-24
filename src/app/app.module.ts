@@ -15,8 +15,7 @@ import {PhotoService} from "./photo/photo.service";
 const appRouts: Routes = [
   {path: '', component: HomeComponent},
   {path: 'hero', component: HeroesComponent},
-  {path: 'photo', component: PhotoComponent},
-  {path: 'super', loadChildren: './super-hero/super-hero.module#SuperHeroModule'}
+  {path: 'photo', component: PhotoComponent}
 ];
 
 @NgModule({
