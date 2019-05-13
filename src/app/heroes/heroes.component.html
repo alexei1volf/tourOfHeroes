@@ -1,6 +1,6 @@
 <h2>My heroes:</h2>
 <ul class="heroes">
-  <li *ngFor="let hero of heroService.heroes" (click)="onSelect(hero)">
+  <li *ngFor="let hero of heroes" (click)="onSelect(hero)">
     <span>{{hero.id}}</span> <a href="#">{{hero.name}}</a>
   </li>
 </ul>

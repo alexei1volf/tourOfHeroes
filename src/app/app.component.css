@@ -4,12 +4,3 @@
   justify-content: flex-end;
 }
 
-.hero {
-  border: 1px dashed darkblue;
-  margin: 10px;
-}
-
-.super {
-  border: 1px dashed orangered;
-  margin: 10px;
-}
