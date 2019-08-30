@@ -1,32 +1,28 @@
-import {Component, OnInit} from '@angular/core';
-import { Hero } from '../hero';
-import { HeroesService } from '../heroes.service';
+import {ChangeDetectionStrategy, Component, ElementRef, HostBinding, Input, OnInit, ViewChild} from '@angular/core';
+import {Hero} from '../hero';
+import {HeroesService} from "../heroes.service";
 
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.css']
+  styleUrls: ['./heroes.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HeroesComponent implements OnInit{
+export class HeroesComponent{
 
-  private _heroes = [];
+  @Input()
+  heroes: Hero[] = [];
 
-  get heroes(): Hero[] {
-    console.log("get heroes");
-    return this._heroes;
-  }
-
-  selectedHero: Hero;
+  @Input()
+  smallMode: boolean;
 
   constructor(public heroService: HeroesService) {
+    this.smallMode = false;
   }
 
-  ngOnInit(): void {
-    this._heroes = this.heroService.heroes;
-  }
-
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
+  get runChangeDetection() {
+    console.log('Checking the view');
+    return true;
   }
 
 }

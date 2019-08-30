@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import { Hero } from './hero';
+import {of} from "rxjs/observable/of";
+import {BehaviorSubject, Observable, Subject, TimeInterval} from "rxjs";
 
-@Injectable()
 export class HeroesService {
 
   private _heroes: Hero[] = [
@@ -12,12 +13,22 @@ export class HeroesService {
     { id: 5, name: 'Mr. Alex' }
   ];
 
+  heroes$ = new BehaviorSubject([]);
 
-  get heroes(): Hero[] {
+  constructor() {
+  }
+
+  getHeroes(): Hero[] {
     return this._heroes;
   }
 
-  constructor() {
+  async loadHeroes(): Promise<Hero[]> {
+    return this._heroes;
+  }
+
+  changeHero(): void {
+    this._heroes[0] = {id: 1, name: "Mr. Black"};
+    this.heroes$.next([...this._heroes]);
   }
 
 }
