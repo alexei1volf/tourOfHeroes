@@ -22,13 +22,7 @@ export class HeroesService {
     return this._heroes;
   }
 
-  async loadHeroes(): Promise<Hero[]> {
-    return this._heroes;
-  }
-
   changeHero(): void {
-    this._heroes[0] = {id: 1, name: "Mr. Black"};
-    this.heroes$.next([...this._heroes]);
-  }
 
+  }
 }

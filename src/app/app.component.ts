@@ -16,11 +16,8 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.heroes = this.heroService.getHeroes();
-
-    /*this.heroService.loadHeroes().then(h => {
-      this.heroes = h;
-    });*/
+    const heroes1 = this.heroService.getHeroes();
+    this.heroes = heroes1;
   }
 
   onClick(): void {
