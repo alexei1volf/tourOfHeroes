@@ -3,20 +3,9 @@ import { AppComponent } from './app.component';
 import {HeroesComponent} from "./heroes/heroes.component";
 import {HeroesService} from "./heroes.service";
 import {Hero} from "./hero";
+import {HeroesServiceMock} from "./heroes.service.mock";
 
 describe('AppComponent', () => {
-  class HeroesServiceMock {
-    alex: Hero = {
-      id: 1,
-      name: "alex"
-    };
-    expectedHeroes: Hero[] = [this.alex];
-
-    getHeroes() {
-      return this.expectedHeroes;
-    }
-  }
-
   let fixture;
   let app;
 
