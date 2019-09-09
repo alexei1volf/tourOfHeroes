@@ -18,16 +18,12 @@ export class HeroesService {
   constructor() {
   }
 
-  getHeroes(): Hero[] {
-    return this._heroes;
-  }
-
   async loadHeroes(): Promise<Hero[]> {
-    return this._heroes;
+    return Promise.resolve(this._heroes);
   }
 
   changeHero(): void {
-    this._heroes[0] = {id: 1, name: "Mr. Black"};
+    this._heroes[0] = {id: 1, name: "vlada"};
     this.heroes$.next([...this._heroes]);
   }
 

@@ -8,14 +8,14 @@ import {HeroesService} from "./heroes.service";
   styleUrls: ['./app.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent implements OnInit{
+export class AppComponent{
   title = 'Tour of Heroes';
   heroes: Hero[] = [];
 
   constructor(public heroService: HeroesService) {
   }
 
-  ngOnInit(): void {
+  async loadHeroes(): Promise<void> {
     this.heroService.loadHeroes().then(h => {
       this.heroes = h;
     });
