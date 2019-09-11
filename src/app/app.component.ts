@@ -8,11 +8,17 @@ import {HeroesService} from "./heroes.service";
   styleUrls: ['./app.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent{
+export class AppComponent implements OnInit{
   title = 'Tour of Heroes';
   heroes: Hero[] = [];
 
   constructor(public heroService: HeroesService) {
+  }
+
+  ngOnInit(): void {
+    this.heroService.getHeroes().subscribe(h => {
+      this.heroes = h;
+    })
   }
 
   async loadHeroes(): Promise<void> {
@@ -24,4 +30,6 @@ export class AppComponent{
   onClick(): void {
     this.heroService.changeHero();
   }
+
+
 }

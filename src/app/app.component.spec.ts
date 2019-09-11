@@ -4,6 +4,7 @@ import {HeroesComponent} from "./heroes/heroes.component";
 import {HeroesService} from "./heroes.service";
 import {Hero} from "./hero";
 import {HeroesServiceMock} from "./heroes.service.mosk";
+import {of} from "rxjs/observable/of";
 
 describe('AppComponent', () => {
   let fixture;
@@ -11,13 +12,13 @@ describe('AppComponent', () => {
   let heroesServiceSpy;
 
   beforeEach(async(() => {
-    const heroesService = jasmine.createSpyObj('HeroesService', ['loadHeroes']);
+    const heroesService = jasmine.createSpyObj('HeroesService', ['getHeroes']);
     const alex: Hero = new Hero();
     alex.id = 1;
     alex.name = "alex";
     const heroes = [alex];
-    heroesServiceSpy = heroesService.loadHeroes.and.returnValue(
-      Promise.resolve(heroes)
+    heroesServiceSpy = heroesService.getHeroes.and.returnValue(
+      of(heroes)
     );
 
     TestBed.configureTestingModule({
@@ -33,16 +34,9 @@ describe('AppComponent', () => {
     app = fixture.debugElement.componentInstance;
   }));
 
-  it('should return empty list if we don\'t take into account async', () => {
-    app.loadHeroes();
-    expect(app.heroes.length).toEqual(0);
+  it('should return async observable immediately', () => {
+    app.ngOnInit();
+    expect(app.heroes.length).toEqual(1);
   });
 
-  it('should return not empty list if we take into account jasmine done()', (done) => {
-    app.loadHeroes().then(() => {
-      expect(app.heroes.length).toBe(1);
-      done();
-    });
-
-  });
 });

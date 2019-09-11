@@ -13,9 +13,13 @@ export class HeroesService {
     { id: 5, name: 'Mr. Alex' }
   ];
 
-  heroes$ = new BehaviorSubject([]);
+  heroes$ = new BehaviorSubject([{ id: 5, name: 'Mr. Alex' }]);
 
   constructor() {
+  }
+
+  getHeroes(): Observable<Hero[]> {
+    return this.heroes$;
   }
 
   async loadHeroes(): Promise<Hero[]> {
