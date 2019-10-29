@@ -10,6 +10,7 @@ import {SuperHeroComponent} from "./super-hero/super-hero.component";
 import { ArticlesComponent } from './articles/articles.component';
 import {ArticleService} from './article.service';
 import {HttpClientModule} from '@angular/common/http';
+import { MoneyTransferComponent } from './money-transfer/money-transfer.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {HttpClientModule} from '@angular/common/http';
     HeroesComponent,
     HeroDetailsComponent,
     SuperHeroComponent,
-    ArticlesComponent
+    ArticlesComponent,
+    MoneyTransferComponent
   ],
   imports: [
     BrowserModule,

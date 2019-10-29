@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 import {Injectable} from '@angular/core';
 import {Article} from './article';
 import {map} from 'rxjs/operators';
+import {NewsApiResponse} from './news-api-response';
 
 const urlPath = 'https://newsapi.org/v2/everything?language=ru&';
 const apiKey = 'apiKey=0f6c7de234634872a1972e7e0bdfb30b';
@@ -17,7 +18,7 @@ export class ArticleService {
     const url = urlPath + 'q=' + query + '&' + apiKey;
     return this.http.get(url)
       .pipe(
-        map(response => response.articles)
+        map((response : NewsApiResponse) => response.articles)
       );
   }
 }
