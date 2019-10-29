@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ArticleService} from '../article.service';
 import {Observable, Subject} from 'rxjs';
 import {Article} from '../article';
-import {switchMap} from 'rxjs/operators';
+import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-articles',
@@ -19,6 +19,8 @@ export class ArticlesComponent implements OnInit {
 
   ngOnInit(): void {
     this.articles$ = this.searchStringChange$.pipe(
+      debounceTime(500),
+      distinctUntilChanged(),
       switchMap(string => {
         return this.articlesService.searchArticles(string);
       })
