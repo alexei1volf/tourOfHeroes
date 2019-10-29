@@ -4,7 +4,7 @@ import {Injectable} from '@angular/core';
 import {Article} from './article';
 import {map} from 'rxjs/operators';
 
-const urlPath = 'https://newsapi.org/v2/everything?';
+const urlPath = 'https://newsapi.org/v2/everything?language=ru&';
 const apiKey = 'apiKey=0f6c7de234634872a1972e7e0bdfb30b';
 
 @Injectable()

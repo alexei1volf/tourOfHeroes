@@ -26,6 +26,8 @@ export class ArticlesComponent implements OnInit {
   }
 
   onSearchStringChange(searchString: string) {
-    this.searchStringChange$.next(searchString);
+    if (searchString && searchString != "") {
+      this.searchStringChange$.next(searchString);
+    }
   }
 }
