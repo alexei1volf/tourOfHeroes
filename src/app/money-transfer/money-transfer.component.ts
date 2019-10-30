@@ -3,6 +3,7 @@ import {NgForm} from '@angular/forms';
 import {BehaviorSubject, combineLatest, merge, Subject, zip} from 'rxjs';
 import {combineAll, debounceTime, map, tap} from 'rxjs/operators';
 import {Transaction} from '../transaction';
+import {RateService} from './rate.service';
 
 @Component({
   selector: 'app-money-transfer',
@@ -14,9 +15,10 @@ export class MoneyTransferComponent implements OnInit {
   fromAccountChange$ = new Subject<string>();
   toAccountChange$ = new Subject<string>();
   amountOfMoneyChange$ = new BehaviorSubject<number>(0);
+  result: number = 0;
   commission: number = 0;
 
-  constructor() {
+  constructor(private rateService: RateService) {
   }
 
   ngOnInit() {
@@ -26,6 +28,13 @@ export class MoneyTransferComponent implements OnInit {
         return <Transaction>{from: from, to: to, amount: amount};
       })
     ).subscribe(transaction => this.recalculateCommission(transaction));
+
+    combineLatest([this.amountOfMoneyChange$, this.rateService.rate$]).pipe(
+      debounceTime(500),
+      map(([amount, rate]) => {
+        return amount * rate;
+      })
+    ).subscribe(result => this.result = result);
   }
 
   onClickSubmit(form: NgForm) {

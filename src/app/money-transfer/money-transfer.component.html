@@ -1,11 +1,13 @@
 <form #moneyTransferForm="ngForm" (ngSubmit)="onClickSubmit(moneyTransferForm)">
   <input type="text" name="fromAccount" placeholder="fromAccount" ngModel (ngModelChange)="onFromAccountChange($event)">
-  <br/>
-  <input type="text" name="toAccount" placeholder="toAccount" ngModel (ngModelChange)="onToAccountChange($event)">
-  <br/>
   <input type="number" name="amountOfMoney" placeholder="amountOfMoney" ngModel="0"
          (ngModelChange)="onAmountOfMoneyChange($event)">
   <br/>
+  <input type="text" name="toAccount" placeholder="toAccount" ngModel (ngModelChange)="onToAccountChange($event)">
+  <input type="number" name="result" placeholder="result" [ngModel]="result">
+  <span>*долларов</span>
+  <br/>
+
   <input type="submit" value="submit">
 </form>
 

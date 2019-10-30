@@ -11,6 +11,7 @@ import { ArticlesComponent } from './articles/articles.component';
 import {ArticleService} from './article.service';
 import {HttpClientModule} from '@angular/common/http';
 import { MoneyTransferComponent } from './money-transfer/money-transfer.component';
+import {RateService} from './money-transfer/rate.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MoneyTransferComponent } from './money-transfer/money-transfer.componen
   ],
   providers: [
     HeroesService,
-    ArticleService
+    ArticleService,
+    RateService
   ],
   bootstrap: [AppComponent]
 })
