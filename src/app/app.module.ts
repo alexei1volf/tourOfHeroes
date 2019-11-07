@@ -12,6 +12,7 @@ import {ArticleService} from './article.service';
 import {HttpClientModule} from '@angular/common/http';
 import { MoneyTransferComponent } from './money-transfer/money-transfer.component';
 import {RateService} from './money-transfer/rate.service';
+import { TimerComponent } from './timer/timer.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {RateService} from './money-transfer/rate.service';
     HeroDetailsComponent,
     SuperHeroComponent,
     ArticlesComponent,
-    MoneyTransferComponent
+    MoneyTransferComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,
