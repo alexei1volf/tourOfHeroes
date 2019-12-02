@@ -5,11 +5,11 @@ import { Hero } from './hero';
 export class HeroesService {
 
   public heroes: Hero[] = [
-    { id: 1, name: 'Ms. Dasha' },
-    { id: 2, name: 'Mr. Igor' },
-    { id: 3, name: 'Mr. Stepan' },
-    { id: 4, name: 'Mr. Evgeniy' },
-    { id: 5, name: 'Mr. Alex' }
+    { id: 1, name: 'Ms. Dasha', age: 10, power: "crazy"},
+    { id: 2, name: 'Mr. Igor', age: 10, power: "crazy" },
+    { id: 3, name: 'Mr. Stepan', age: 10, power: "crazy" },
+    { id: 4, name: 'Mr. Evgeniy', age: 10, power: "crazy" },
+    { id: 5, name: 'Mr. Alex', age: 10, power: "crazy" }
   ];
 
   constructor() {
