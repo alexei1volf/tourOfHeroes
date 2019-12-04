@@ -1,4 +1,4 @@
-<form #heroForm="ngForm" (ngSubmit)="onClickSubmit(heroForm)">
+<form #heroForm="ngForm" (ngSubmit)="onClickSubmit(heroForm)" appAgeRelatedValidatorDirective>
   <div class="form-group">
     <label>Name</label>
     <input type="text"
@@ -6,7 +6,6 @@
            [(ngModel)]=hero.name
            #name="ngModel"
            required
-           appAlexForbidden
     >
     <div *ngIf="name.invalid && !name.pristine && !name.errors?.forbiddenName">
       please, enter you name here!
@@ -21,7 +20,12 @@
   <div class="form-group">
     <label>Age</label>
     <input type="number"
+           name="age"
+           [(ngModel)]=hero.age
            >
+    <div *ngIf="heroForm.errors?.alexAgeViolation">
+      Alex is not so old
+    </div>
   </div>
 
   <div class="form-group">

@@ -15,6 +15,7 @@ import {RateService} from './money-transfer/rate.service';
 import { TimerComponent } from './timer/timer.component';
 import { HeroRegistrationComponent } from './user-registration/hero-registration.component';
 import { AlexForbiddenDirective } from './alex-forbidden.directive';
+import { AgeRelatedValidatorDirectiveDirective } from './age-related-validator-directive.directive';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AlexForbiddenDirective } from './alex-forbidden.directive';
     MoneyTransferComponent,
     TimerComponent,
     HeroRegistrationComponent,
-    AlexForbiddenDirective
+    AlexForbiddenDirective,
+    AgeRelatedValidatorDirectiveDirective
   ],
   imports: [
     BrowserModule,
