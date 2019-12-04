@@ -14,6 +14,7 @@ import { MoneyTransferComponent } from './money-transfer/money-transfer.componen
 import {RateService} from './money-transfer/rate.service';
 import { TimerComponent } from './timer/timer.component';
 import { HeroRegistrationComponent } from './user-registration/hero-registration.component';
+import { AlexForbiddenDirective } from './alex-forbidden.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HeroRegistrationComponent } from './user-registration/hero-registration
     ArticlesComponent,
     MoneyTransferComponent,
     TimerComponent,
-    HeroRegistrationComponent
+    HeroRegistrationComponent,
+    AlexForbiddenDirective
   ],
   imports: [
     BrowserModule,
