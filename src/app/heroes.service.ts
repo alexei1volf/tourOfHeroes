@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import { Hero } from './hero';
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class HeroesService {
@@ -13,6 +14,14 @@ export class HeroesService {
   ];
 
   constructor() {
+  }
+
+  public isNameTaken(name: string): Observable<boolean> {
+    //go to the backend to check it
+    return new Observable(subscriber => {
+      const isTaken = name === "boris";
+      subscriber.next(isTaken);
+    })
   }
 
 }

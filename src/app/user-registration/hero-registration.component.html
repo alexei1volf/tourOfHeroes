@@ -6,6 +6,7 @@
            [(ngModel)]=hero.name
            #name="ngModel"
            required
+           appUniqueName
     >
     <div *ngIf="name.invalid && !name.pristine && !name.errors?.forbiddenName">
       please, enter you name here!

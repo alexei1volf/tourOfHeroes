@@ -3,9 +3,9 @@ import {AbstractControl, FormGroup, NG_VALIDATORS, ValidationErrors, Validator} 
 
 @Directive({
   selector: '[appAgeRelatedValidatorDirective]',
-  providers: [{ provide: NG_VALIDATORS, useExisting: AgeRelatedValidatorDirectiveDirective, multi: true }]
+  providers: [{ provide: NG_VALIDATORS, useExisting: AgeRelatedValidatorDirective, multi: true }]
 })
-export class AgeRelatedValidatorDirectiveDirective implements Validator{
+export class AgeRelatedValidatorDirective implements Validator{
 
   constructor() { }
 

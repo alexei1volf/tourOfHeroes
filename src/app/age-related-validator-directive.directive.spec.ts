@@ -1,8 +1,8 @@
-import { AgeRelatedValidatorDirectiveDirective } from './age-related-validator-directive.directive';
+import { AgeRelatedValidatorDirective } from './age-related-validator.directive';
 
 describe('AgeRelatedValidatorDirectiveDirective', () => {
   it('should create an instance', () => {
-    const directive = new AgeRelatedValidatorDirectiveDirective();
+    const directive = new AgeRelatedValidatorDirective();
     expect(directive).toBeTruthy();
   });
 });

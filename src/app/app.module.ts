@@ -15,7 +15,8 @@ import {RateService} from './money-transfer/rate.service';
 import { TimerComponent } from './timer/timer.component';
 import { HeroRegistrationComponent } from './user-registration/hero-registration.component';
 import { AlexForbiddenDirective } from './alex-forbidden.directive';
-import { AgeRelatedValidatorDirectiveDirective } from './age-related-validator-directive.directive';
+import { AgeRelatedValidatorDirective } from './age-related-validator.directive';
+import { UniqueNameDirective } from './user-registration/unique-name.directive';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AgeRelatedValidatorDirectiveDirective } from './age-related-validator-d
     TimerComponent,
     HeroRegistrationComponent,
     AlexForbiddenDirective,
-    AgeRelatedValidatorDirectiveDirective
+    AgeRelatedValidatorDirective,
+    UniqueNameDirective
   ],
   imports: [
     BrowserModule,
