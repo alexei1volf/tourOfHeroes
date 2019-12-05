@@ -20,7 +20,7 @@ export class HeroesService {
     //go to the backend to check it
     return new Observable(subscriber => {
       const isTaken = name === "boris";
-      subscriber.next(isTaken);
+      setTimeout(() => subscriber.next(isTaken), 1000);
     })
   }
 
