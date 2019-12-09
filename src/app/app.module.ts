@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
@@ -13,10 +13,11 @@ import {HttpClientModule} from '@angular/common/http';
 import { MoneyTransferComponent } from './money-transfer/money-transfer.component';
 import {RateService} from './money-transfer/rate.service';
 import { TimerComponent } from './timer/timer.component';
-import { HeroRegistrationComponent } from './user-registration/hero-registration.component';
+import { HeroRegistrationComponent } from './hero-registration/hero-registration.component';
 import { AlexForbiddenDirective } from './alex-forbidden.directive';
 import { AgeRelatedValidatorDirective } from './age-related-validator.directive';
-import { UniqueNameDirective } from './user-registration/unique-name.directive';
+import { UniqueNameDirective } from './hero-registration/unique-name.directive';
+import { HeroRegistrationReactiveComponent } from './hero-registration-reactive/hero-registration-reactive.component';
 
 @NgModule({
   declarations: [
@@ -30,11 +31,13 @@ import { UniqueNameDirective } from './user-registration/unique-name.directive';
     HeroRegistrationComponent,
     AlexForbiddenDirective,
     AgeRelatedValidatorDirective,
-    UniqueNameDirective
+    UniqueNameDirective,
+    HeroRegistrationReactiveComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [

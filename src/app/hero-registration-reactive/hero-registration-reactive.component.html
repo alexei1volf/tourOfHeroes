@@ -1,0 +1,26 @@
+<form [formGroup]="heroForm" (ngSubmit)="onClickSubmit()">
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text"
+           formControlName="name"
+           required
+    >
+    <div *ngIf="heroForm.get('name').invalid && !heroForm.get('name').pristine">
+      please, enter you name here!
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Age</label>
+    <input type="number"
+           formControlName="age"
+    >
+  </div>
+
+  <button class="form-group" type="submit" >Submit</button>
+</form>
+
+<br>Dirty: {{heroForm.dirty}}
+<br>Touched: {{heroForm.touched}}
+<br>Valid: {{heroForm.valid}}
+<br>Value: {{heroForm.value | json}}
