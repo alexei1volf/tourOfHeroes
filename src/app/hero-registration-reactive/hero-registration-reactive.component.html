@@ -1,58 +1,41 @@
-<form [formGroup]="heroForm" (ngSubmit)="onClickSubmit()">
+<form #heroForm="ngForm" (ngSubmit)="onClickSubmit(heroForm)" appAgeRelatedValidatorDirective>
   <div class="form-group">
     <label>Name</label>
     <input type="text"
-           formControlName="name"
+           name="name"
+           [(ngModel)]=hero.name
+           #name="ngModel"
+           required
+           appUniqueName
+           appAlexForbidden
     >
-    <div *ngIf="heroForm.get('name').invalid && !heroForm.get('name').pristine">
+    <div *ngIf="name.invalid && !name.pristine && !name.errors?.forbiddenName">
       please, enter you name here!
     </div>
+
+    <div *ngIf="name.errors?.forbiddenName">
+      alex is forbidden!
+    </div>
+
   </div>
 
   <div class="form-group">
     <label>Age</label>
     <input type="number"
-           formControlName="age"
+           name="age"
+           [(ngModel)]=hero.age
     >
+    <div *ngIf="heroForm.errors?.alexAgeViolation">
+      Alex is not so old
+    </div>
   </div>
 
   <div class="form-group">
-    <label>Email</label>
-    <input type="text"
-           formControlName="email"
-    >
-  </div>
-
-  <div class="form-group">
-    <label>Phone</label>
-    <input type="text"
-           formControlName="phone"
-    >
-  </div>
-
-  <div class="form-group">
-    <label>
-      <input type="radio"
-             value="email"
-             formControlName="notification"
-             (click)="onRadioButtonClick('email')"
-      >
-      Email
-    </label>
-    <label>
-      <input type="radio"
-             value="phone"
-             formControlName="notification"
-             (click)="onRadioButtonClick('phone')"
-      >
-      Phone
-    </label>
+    <label>Hero Power</label>
+    <select>
+      <option *ngFor="let pow of powerService.powers | async" [value]="pow">{{pow}}</option>
+    </select>
   </div>
 
   <button class="form-group" type="submit" >Submit</button>
 </form>
-
-<br>Dirty: {{heroForm.dirty}}
-<br>Touched: {{heroForm.touched}}
-<br>Valid: {{heroForm.valid}}
-<br>Value: {{heroForm.value | json}}

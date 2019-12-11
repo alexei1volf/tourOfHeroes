@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
 import {Hero} from '../hero';
+import {PowerService} from '../hero-registration/power.service';
 
 @Component({
   selector: 'app-hero-registration-reactive',
@@ -9,36 +10,15 @@ import {Hero} from '../hero';
 })
 export class HeroRegistrationReactiveComponent implements OnInit {
 
-  public heroForm: FormGroup;
-  public hero: Hero;
+  public hero: Hero = new Hero();
 
-  constructor(private fb: FormBuilder) { }
+  constructor(public powerService: PowerService) { }
 
   ngOnInit() {
-    this.heroForm = this.fb.group({
-      name: ['alex',
-        [Validators.required, Validators.minLength(3)]],
-      age: 32,
-      email: ['',
-        [Validators.required, Validators.email]
-      ],
-      phone: '',
-      notification: 'email'
-    });
   }
 
-  onClickSubmit() {
-    console.log(this.heroForm);
-  }
-
-  onRadioButtonClick(notification: string) {
-    const phoneControl = this.heroForm.get('phone');
-    if (notification === 'phone') {
-      phoneControl.setValidators(Validators.required);
-    } else {
-      phoneControl.clearValidators();
-    }
-    phoneControl.updateValueAndValidity();
+  onClickSubmit(heroForm: NgForm) {
+    console.log(heroForm);
   }
 
 }
