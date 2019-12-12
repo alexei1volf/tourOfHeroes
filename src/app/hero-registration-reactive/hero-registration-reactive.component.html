@@ -1,41 +1,42 @@
-<form #heroForm="ngForm" (ngSubmit)="onClickSubmit(heroForm)" appAgeRelatedValidatorDirective>
+<form [formGroup]="heroForm" (ngSubmit)="onClickSubmit()">
   <div class="form-group">
     <label>Name</label>
     <input type="text"
-           name="name"
-           [(ngModel)]=hero.name
-           #name="ngModel"
-           required
-           appUniqueName
-           appAlexForbidden
+           formControlName="name"
     >
-    <div *ngIf="name.invalid && !name.pristine && !name.errors?.forbiddenName">
-      please, enter you name here!
-    </div>
-
-    <div *ngIf="name.errors?.forbiddenName">
-      alex is forbidden!
-    </div>
-
   </div>
 
   <div class="form-group">
     <label>Age</label>
     <input type="number"
-           name="age"
-           [(ngModel)]=hero.age
+           formControlName="age"
     >
-    <div *ngIf="heroForm.errors?.alexAgeViolation">
-      Alex is not so old
-    </div>
   </div>
 
-  <div class="form-group">
-    <label>Hero Power</label>
-    <select>
-      <option *ngFor="let pow of powerService.powers | async" [value]="pow">{{pow}}</option>
-    </select>
+  <div formArrayName="addresses" *ngFor="let address of addresses.controls; index as i">
+    <div [formGroupName]="i">
+      <div class="form-group">
+        <label for="{{'cityId' + i}}">City</label>
+        <input type="text"
+               formControlName="city"
+               id="{{'cityId' + i}}"
+        >
+      </div>
+      <div class="form-group">
+        <label for="{{'streetId' + i}}">Street</label>
+        <input type="text"
+               formControlName="street"
+               id="{{'streetId' + i}}"
+        >
+      </div>
+    </div>
   </div>
+  <button class="form-group" (click)="addAddress()" >Add address</button>
 
   <button class="form-group" type="submit" >Submit</button>
 </form>
+
+<br>Dirty: {{heroForm.dirty}}
+<br>Touched: {{heroForm.touched}}
+<br>Valid: {{heroForm.valid}}
+<br>Value: {{heroForm.value | json}}
