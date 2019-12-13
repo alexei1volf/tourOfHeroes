@@ -11,6 +11,9 @@
     <input type="number"
            formControlName="age"
     >
+    <span>
+      {{formMessage}}
+    </span>
   </div>
 
   <div formArrayName="addresses" *ngFor="let address of addresses.controls; index as i">
